@@ -3,6 +3,14 @@
  */
 var video;
 
+function getMinutes(minutes) {
+  if (!minutes) {
+    return '';
+  }
+
+  return parseInt(minutes / 60000, 10) + ' Min';
+}
+
 angular.module('app', [
   'ui.router',
   'ngAria',
@@ -63,8 +71,14 @@ angular.module('app', [
   })
   .controller('MainController', function ($scope, APIService) {
 
-    $scope.videos = [];
+    $scope.videos = null;
     $scope.search = search;
+    $scope.getMinutes = getMinutes;
+    $scope.showMin = 0;
+    $scope.showMax = 5;
+
+    $scope.prev = prev;
+    $scope.next = next;
 
     /**
      *
@@ -78,6 +92,20 @@ angular.module('app', [
         }, function () {
           alert('issue!');
         });
+    }
+
+    function prev() {
+      var r = $scope.showMin - 1;
+      $scope.showMin = (r < 0) ? 0 : r;
+      r = $scope.showMax - 1;
+      $scope.showMax = (r < 5) ? 5 : r;
+    }
+
+    function next() {
+      var r = $scope.showMax + 1;
+      $scope.showMax = (r > $scope.countVideos) ? $scope.countVideos : r;
+      r = $scope.showMin + 1;
+      $scope.showMin = (r > ($scope.countVideos - 5)) ? $scope.countVideos - 5 : r;
     }
   })
   .controller('InformationController', function ($scope, APIService, $stateParams) {

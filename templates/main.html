@@ -1,17 +1,45 @@
-<nav>
-    <h1>Index</h1>
-</nav>
+<div id="app-main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                curio
+            </div>
 
-<form novalidate>
-    <input type="text" ng-model="searchValue" placeholder="Search">
-    <button ng-click="search(searchValue)">Search</button>
-</form>
+            <div id="app-main-search-box" class="col-md-6 col-md-offset-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." ng-model="searchValue">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="search(searchValue)">Search</button>
+                    </span>
+                </div>
+            </div>
 
-<div class="videos">
-    <a ui-sref="information({id: video.id})" ng-repeat="video in videos">
-        <div>
-            <img width="200" ng-src="{{ video.images[0].url }}" alt="">
-            {{ video.titles.default }}
+            <div class="videos col-md-12" ng-show="videos">
+                <h3>Search results:</h3>
+                <div class="row">
+                    <div class="col-md-2 text-left">
+                        <button class="btn" ng-click="prev()">Prev</button>
+                    </div>
+                    <div class="col-md-2 col-md-offset-8 text-right">
+                        <button class="btn" ng-click="next()">Next</button>
+                    </div>
+                </div>
+                <div class="row">
+                <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in videos">
+                    <div class="col-md-2" ng-show="key >= showMin && key <= showMax">
+                        <img width="200" ng-src="{{ video.images[0].url }}" alt="">
+                        <div>
+                            {{ video.titles.default }}
+                        </div>
+                        <div class="overlay">
+                            <div>
+                                {{ getMinutes(video.duration) }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            </div>
         </div>
-    </a>
+    </div>
 </div>

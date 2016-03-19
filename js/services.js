@@ -3,6 +3,7 @@
  */
 
 var api = 'http://api.7hack.de:80/v1/';
+var ericsonAPI = 'http://hack.api.uat.ebmsctogroup.com/stores-active/contentInstance/event/search'; //?query=How+I+Met+Your+Mother&numberOfResults=1000&api_key=' + ericsonKey;
 
 angular.module('services', [])
   .factory('APIService', function($http) {
@@ -38,6 +39,18 @@ angular.module('services', [])
           params: {
             apikey: key7TV,
             format: 'mp4'
+          }
+        })
+      },
+
+      getEricsonData: function (query, numberOfResults) {
+        return $http({
+          method: 'GET',
+          url: ericsonAPI,
+          params: {
+            api_key: ericsonKey,
+            query: query,
+            numberOfResults: numberOfResults || 5
           }
         })
       }

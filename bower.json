@@ -20,7 +20,6 @@
     "videogular-poster": "^1.4.2",
     "videogular-ima-ads": "^1.4.2",
     "videogular-angulartics": "^1.4.2",
-    "angular-sanitize": "^1.5.2",
-    "bootstrap": "^3.3.6"
+    "angular-sanitize": "^1.5.2"
   }
 }

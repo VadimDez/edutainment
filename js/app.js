@@ -6,7 +6,11 @@ angular.module('app', [
   'ui.router',
   'ngAria',
   'services',
-  'ngVideo'
+    "ngSanitize",
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster"
   ])
   .config(function ($urlRouterProvider, $locationProvider, $stateProvider) {
 
@@ -83,9 +87,10 @@ angular.module('app', [
         $scope.video = response.data.response;
       });
   })
-  .controller('VideoController', function ($scope, APIService, $stateParams, video) {
+  .controller('VideoController', function ($scope, APIService, $stateParams, $timeout, $sce) {
     $scope.video = null;
     $scope.videoURL = null;
+    $scope.CURRENT_TIME = null;
 
     APIService.getVideo($stateParams.id)
       .then(function (response) {
@@ -97,7 +102,22 @@ angular.module('app', [
       .then(function (response) {
         
         $scope.url = response.data.response.sources[0];
-        video.addSource('mp4', response.data.response.sources[0].url);
+
+        $scope.config = {
+          sources: [
+            {src: $sce.trustAsResourceUrl(response.data.response.sources[0].url), type: "video/mp4"}
+          ],
+          tracks: [],
+          theme: "/bower_components/videogular-themes-default/videogular.css",
+          // plugins: {
+            // poster: "http://www.videogular.com/assets/images/videogular.png"
+          // }
+        };
+
+
+        $timeout(function () {
+          console.log($scope.currentTime);
+        }, 2000)
       })
   })
   .controller('PostQuestionnaireController', function ($scope, APIService) {

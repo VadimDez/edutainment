@@ -1,11 +1,57 @@
 <h1>{{ video.titles.default }}</h1>
 
-<section class="video" ng-video>
-    <video vi-screen></video>
-    <section vi-controls>
-        <input vi-timeline />
-        <a vi-controls-play>Play</a>
-        <a vi-controls-pause>Pause</a>
-        <a vi-full-screen-toggle>Toggle Full-Screen!</a>
-    </section>
-</section>
+
+<div class="videogular-container">
+<videogular vg-theme="config.theme">
+    <vg-media vg-src="config.sources"
+              vg-tracks="config.tracks">
+    </vg-media>
+
+    <vg-controls>
+        <vg-play-pause-button></vg-play-pause-button>
+        <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+        <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+        </vg-scrub-bar>
+        <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+        <vg-volume>
+            <vg-mute-button></vg-mute-button>
+            <vg-volume-bar></vg-volume-bar>
+        </vg-volume>
+        <vg-fullscreen-button></vg-fullscreen-button>
+    </vg-controls>
+
+    <vg-overlay-play></vg-overlay-play>
+    <vg-poster vg-url='config.plugins.poster'></vg-poster>
+</videogular>
+</div>
+
+<script type="text/css">
+    .videogular-container {
+        width: 100%;
+        height: 320px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    @media (min-width: 1200px) {
+        .videogular-container {
+            width: 1170px;
+            height: 658.125px;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .videogular-container {
+            width: 940px;
+            height: 528.75px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        .videogular-container {
+            width: 728px;
+            height: 409.5px;
+        }
+    }
+</script>

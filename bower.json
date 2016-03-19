@@ -12,6 +12,14 @@
     "angular": "^1.5.2",
     "angular-ui-router": "^0.2.18",
     "angular-aria": "^1.5.2",
-    "ngvideo": "^1.0.2"
+    "videogular": "^1.4.2",
+    "videogular-themes-default": "^1.4.2",
+    "videogular-controls": "^1.4.2",
+    "videogular-buffering": "^1.4.2",
+    "videogular-overlay-play": "^1.4.2",
+    "videogular-poster": "^1.4.2",
+    "videogular-ima-ads": "^1.4.2",
+    "videogular-angulartics": "^1.4.2",
+    "angular-sanitize": "^1.5.2"
   }
 }

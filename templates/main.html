@@ -1,4 +1,16 @@
 <nav>
     <h1>Index</h1>
 </nav>
-<a ui-sref="video({id: 'test'})">test video</a>
+
+<form novalidate>
+    <input type="text" ng-model="searchValue" placeholder="Search">
+    <button ng-click="search(searchValue)">Search</button>
+</form>
+
+<div class="videos">
+    <a ui-sref="video({id: video.id})" ng-repeat="video in videos">
+        <div>
+            {{ video.titles.default }}
+        </div>
+    </a>
+</div>

@@ -21,6 +21,11 @@ angular.module('app', [
         templateUrl: 'templates/main.html',
         controller: 'MainController'
       })
+      .state('information', {
+        url: '/information/:id',
+        templateUrl: 'templates/video-information.html',
+        controller: 'InformationController'
+      })
       .state('video', {
         url: '/video/:id',
         templateUrl: 'templates/video.html',
@@ -50,7 +55,6 @@ angular.module('app', [
     $timeout(function () {
       $state.go('main');
     }, 3000);
-    console.log(APIService);
   })
   .controller('MainController', function ($scope, APIService) {
 
@@ -70,6 +74,14 @@ angular.module('app', [
           alert('issue!');
         });
     }
+  })
+  .controller('InformationController', function ($scope, APIService, $stateParams) {
+    $scope.video = null;
+
+    APIService.getVideo($stateParams.id)
+      .then(function (response) {
+        $scope.video = response.data.response;
+      });
   })
   .controller('VideoController', function ($scope, APIService, $stateParams, video) {
     $scope.video = null;

@@ -1,0 +1,14 @@
+{
+  "name": "edutainment",
+  "homepage": "https://github.com/VadimDez/edutainment",
+  "authors": [
+    "Vadym Yatsyuk <vasp3d@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.2"
+  }
+}

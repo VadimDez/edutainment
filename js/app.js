@@ -25,6 +25,16 @@ angular.module('app', [
         url: '/video/:id',
         templateUrl: 'templates/video.html',
         controller: 'VideoController'
+      })
+      .state('post-questionnaire', {
+        url: '/video/:id/post-questionnaire',
+        templateUrl: 'templates/post-questionnaire.html',
+        controller: 'PostQuestionnaireController'
+      })
+      .state('suggested-videos', {
+        url: '/video/:id/suggested-videos',
+        templateUrl: 'templates/suggested-videos.html',
+        controller: 'SuggestedVideosController'
       });
 
     $urlRouterProvider
@@ -77,4 +87,10 @@ angular.module('app', [
         $scope.url = response.data.response.sources[0];
         video.addSource('mp4', response.data.response.sources[0].url);
       })
+  })
+  .controller('PostQuestionnaireController', function ($scope, APIService) {
+
+  })
+  .controller('SuggestedVideosController', function ($scope, APIService) {
+    
   });

@@ -6,7 +6,7 @@
             <span ng-show="video.parentalRating">{{ video.parentalRating.age }}+</span>
         </div>
         <div>
-            Duration: {{ video.duration }}
+            Duration: {{ video.duration / 60000 }}
         </div>
         <div ng-show="video.languageVersion">
             Language: {{ video.languageVersion }}

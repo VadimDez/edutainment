@@ -1,6 +1,7 @@
 /**
  * Created by Vadym Yatsyuk on 19/03/16
  */
+var video;
 
 angular.module('app', [
   'ui.router',
@@ -87,42 +88,59 @@ angular.module('app', [
         $scope.video = response.data.response;
       });
   })
-  .controller('VideoController', function ($scope, APIService, $stateParams, $timeout, $sce) {
+  .controller('VideoController', function ($scope, APIService, $stateParams, $timeout, $sce, $state) {
     $scope.video = null;
     $scope.videoURL = null;
     $scope.CURRENT_TIME = null;
+    video = null;
+
+    $scope.onComplete = function () {
+      $timeout(function () {
+        $state.go('post-questionnaire', {id: $scope.video.id});
+      }, 1000);
+    };
 
     APIService.getVideo($stateParams.id)
       .then(function (response) {
+        video = response.data.response;
         $scope.video = response.data.response;
-        console.log($scope.video);
+
+        APIService.getVideoURL($stateParams.id)
+          .then(function (response) {
+
+            $scope.url = response.data.response.sources[0];
+
+            $scope.config = {
+              sources: [
+                {src: $sce.trustAsResourceUrl(response.data.response.sources[0].url), type: "video/mp4"}
+              ],
+              tracks: [],
+              theme: "/bower_components/videogular-themes-default/videogular.css",
+              // plugins: {
+                // poster: "http://www.videogular.com/assets/images/videogular.png"
+              // }
+            };
+          });
+
       });
 
-    APIService.getVideoURL($stateParams.id)
-      .then(function (response) {
-        
-        $scope.url = response.data.response.sources[0];
-
-        $scope.config = {
-          sources: [
-            {src: $sce.trustAsResourceUrl(response.data.response.sources[0].url), type: "video/mp4"}
-          ],
-          tracks: [],
-          theme: "/bower_components/videogular-themes-default/videogular.css",
-          // plugins: {
-            // poster: "http://www.videogular.com/assets/images/videogular.png"
-          // }
-        };
-
-
-        $timeout(function () {
-          console.log($scope.currentTime);
-        }, 2000)
-      })
   })
-  .controller('PostQuestionnaireController', function ($scope, APIService) {
+  .controller('PostQuestionnaireController', function ($scope, $state, $stateParams) {
+    $scope.goBack = goBack;
+    $scope.next = next;
 
+    function next() {
+      $state.go('suggested-videos', {id: $stateParams.id})
+    }
+
+    function goBack() {
+      $state.go('video', {id: $stateParams.id})
+    }
   })
-  .controller('SuggestedVideosController', function ($scope, APIService) {
-    
+  .controller('SuggestedVideosController', function ($scope, APIService, $state) {
+    $scope.goToInitial = goToInitial;
+
+    function goToInitial() {
+      $state.go('main');
+    }
   });

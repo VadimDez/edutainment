@@ -14,7 +14,8 @@ angular.module('services', [])
           params: {
             apikey: key7TV,
             selection: '{totalCount,data{id,type,titles,descriptions,shortDescriptions,duration,status,images{id,type,url}}}',
-            search: title
+            search: title,
+            limit: 50
           }
         })
       },

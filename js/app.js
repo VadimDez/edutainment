@@ -3,7 +3,9 @@
  */
 
 angular.module('app', [
-    'ui.router'
+  'ui.router',
+  'ngAria',
+  'services'
   ])
   .config(function ($urlRouterProvider, $locationProvider, $stateProvider) {
 
@@ -27,8 +29,8 @@ angular.module('app', [
       requireBase: false
     });
   })
-  .controller('IndexController', function () {
-
+  .controller('IndexController', function (APIService) {
+    console.log(APIService);
   })
   .controller('VideoController', function () {
 

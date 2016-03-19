@@ -9,6 +9,7 @@
   "moduleType": [],
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.5.2"
+    "angular": "^1.5.2",
+    "angular-ui-router": "^0.2.18"
   }
 }

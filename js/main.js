@@ -25,7 +25,6 @@ var init = function () {
                     // if first page, terminate app
                     unregister();
                 } else {
-                    // move previous page
                     $.mobile.urlHistory.activeIndex -= 1;
                     $.mobile.urlHistory.clearForward();
                     window.history.back();

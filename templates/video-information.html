@@ -1,0 +1,19 @@
+<div class="information-bg">
+    <div class="information-block">
+        <h1>{{ video.titles.default }}</h1>
+        <div>
+            <span ng-show="video.productionYear">{{ video.productionYear }}</span>
+            <span ng-show="video.parentalRating">{{ video.parentalRating.age }}+</span>
+        </div>
+        <div>
+            Duration: {{ video.duration }}
+        </div>
+        <div ng-show="video.languageVersion">
+            Language: {{ video.languageVersion }}
+        </div>
+        <div>
+            {{ video.descriptions.default }}
+        </div>
+        <a ui-sref="video({id: video.id})">Watch</a>
+    </div>
+</div>

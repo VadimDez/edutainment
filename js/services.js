@@ -25,7 +25,7 @@ angular.module('services', [])
           url: api + 'videos/' + id,
           params: {
             apikey: key7TV,
-            selection: '{id,type,titles,description,shortDescription,duration,status,images{id,type,url}}'
+            selection: '{id,type,titles,descriptions,shortDescriptions,duration,status,languageVersion,productionYear,tvShow,parentalRating,episode,images{id,type,url}}'
           }
         })
       },

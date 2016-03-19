@@ -5,7 +5,8 @@
 angular.module('app', [
   'ui.router',
   'ngAria',
-  'services'
+  'services',
+  'ngVideo'
   ])
   .config(function ($urlRouterProvider, $locationProvider, $stateProvider) {
 
@@ -14,6 +15,11 @@ angular.module('app', [
         url: '/',
         templateUrl: 'templates/index.html',
         controller: 'IndexController'
+      })
+      .state('main', {
+        url: '/main',
+        templateUrl: 'templates/main.html',
+        controller: 'MainController'
       })
       .state('video', {
         url: '/video/:id',
@@ -25,13 +31,50 @@ angular.module('app', [
       .otherwise('/');
 
     $locationProvider.html5Mode({
-      enabled: true,
+      enabled: false,
       requireBase: false
     });
   })
-  .controller('IndexController', function (APIService) {
+  .controller('IndexController', function (APIService, $timeout, $state) {
+
+    $timeout(function () {
+      $state.go('main');
+    }, 3000);
     console.log(APIService);
   })
-  .controller('VideoController', function () {
+  .controller('MainController', function ($scope, APIService) {
 
+    $scope.videos = [];
+    $scope.search = search;
+
+    /**
+     *
+     * @param title
+     */
+    function search(title) {
+      APIService.search(title)
+        .then(function (data) {
+          $scope.countVideos = data.data.response.totalCount;
+          $scope.videos = data.data.response.data;
+        }, function () {
+          alert('issue!');
+        });
+    }
+  })
+  .controller('VideoController', function ($scope, APIService, $stateParams, video) {
+    $scope.video = null;
+    $scope.videoURL = null;
+
+    APIService.getVideo($stateParams.id)
+      .then(function (response) {
+        $scope.video = response.data.response;
+        console.log($scope.video);
+      });
+
+    APIService.getVideoURL($stateParams.id)
+      .then(function (response) {
+        
+        $scope.url = response.data.response.sources[0];
+        video.addSource('mp4', response.data.response.sources[0].url);
+      })
   });

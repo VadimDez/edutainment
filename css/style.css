@@ -10,10 +10,14 @@ nav {
     height: 100px;
 }
 
-nav .logo {
+/*nav .logo {*/
+/**/
+    /*font-size: 38px;*/
+    /*line-height: 30px;*/
+/*}*/
 
-    font-size: 38px;
-    line-height: 30px;
+nav .logo img {
+    height: 50px;
 }
 
 .topics > div {
@@ -24,7 +28,7 @@ nav .logo {
 }
 
 #app-main-search-box {
-    padding-top: 5px;
+    padding-top: 15px;
 }
 #app-main-search-box button {
     padding-left: 30px;

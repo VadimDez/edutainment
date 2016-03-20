@@ -143,7 +143,14 @@ angular.module('app', [
     APIService.getVideo($stateParams.id)
       .then(function (response) {
         $scope.video = response.data.response;
+
+
+        APIService.getEricsonData($scope.video.titles.default, 5)
+          .then(function (ericsonData) {
+            $scope.ericsonData = ericsonData.data;
+          })
       });
+
   })
   .controller('PrequestionnaireController', function ($scope, APIService, $state, $stateParams) {
     $scope.questionN = 1;

@@ -85,7 +85,19 @@ angular.module('app', [
      * @param title
      */
     function search(title) {
-      APIService.search(title)
+      APIService.search({
+          search: title
+        })
+        .then(function (data) {
+          $scope.countVideos = data.data.response.totalCount;
+          $scope.videos = data.data.response.data;
+        }, function () {
+          alert('issue!');
+        });
+
+      APIService.search({
+          search: title
+        })
         .then(function (data) {
           $scope.countVideos = data.data.response.totalCount;
           $scope.videos = data.data.response.data;

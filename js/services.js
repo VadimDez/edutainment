@@ -8,17 +8,16 @@ var ericsonAPI = 'http://hack.api.uat.ebmsctogroup.com/stores-active/contentInst
 angular.module('services', [])
   .factory('APIService', function($http) {
     return {
-      search: function (title) {
-        return $http({
+      search: function (search) {
+        return $http($.extend({
           method: 'GET',
           url: api + 'videos',
           params: {
             apikey: key7TV,
             selection: '{totalCount,data{id,type,titles,descriptions,shortDescriptions,duration,status,images{id,type,url}}}',
-            search: title,
             limit: 50
           }
-        })
+        }, search))
       },
 
       getVideo: function (id) {

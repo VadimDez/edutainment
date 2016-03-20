@@ -25,19 +25,21 @@
                     </div>
                 </div>
                 <div class="row">
-                <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in videos">
-                    <div class="col-md-2" ng-show="key >= showMin && key <= showMax">
-                        <img width="200" ng-src="{{ video.images[0].url }}" alt="">
-                        <div>
-                            {{ video.titles.default }}
-                        </div>
-                        <div class="overlay">
+                    <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in videos">
+                        <div class="col-md-2" ng-show="key >= showMin && key <= showMax">
                             <div>
-                                {{ getMinutes(video.duration) }}
+                                <img ng-src="{{ video.images[0].url }}" alt="">
+                                <div>
+                                    {{ video.titles.default }}
+                                </div>
+                                <div class="overlay">
+                                    <div>
+                                        {{ getMinutes(video.duration) }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
                 </div>
             </div>
         </div>

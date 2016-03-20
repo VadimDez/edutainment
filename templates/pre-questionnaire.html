@@ -1,25 +1,27 @@
-<div ng-show="questionN == 1">
-    <h2>Where is Japan on the world map?</h2>
+<div id="pre-questionnaire">
+    <div ng-show="questionN == 1">
+        <h2 class="text-center">Where is Japan on the world map?</h2>
 
-    <img ng-show="!hide" ng-click="hide = true" width="100%" src="/imgs/Japan/world%20map/world_map_blank_black_lines_4500px_monochrome.png" alt="">
-    <img ng-show="hide" ng-click="questionN = 2" width="100%" src="/imgs/Japan/world%20map/map_japan_selected.png" alt="">
-</div>
-<div ng-show="questionN == 2">
-    <h2>Symbol of Japan?</h2>
-    <div class="row">
-        <div class="col-md-6"><img width="200px" src="/imgs/Japan/world%20map/symbol_wrong_1.png" alt=""></div>
-        <div class="col-md-6" ng-click="questionN = 3"><img width="200px" src="/imgs/Japan/world%20map/symbol_1.png" alt=""></div>
-        <div class="col-md-6"><img width="200px" src="/imgs/Japan/world%20map/symbol_wrong_2.png" alt=""></div>
-        <div class="col-md-6"><img width="200px" src="/imgs/Japan/world%20map/symbol_wrong_3.png" alt=""></div>
+        <img ng-show="!hide" ng-click="hide = true" width="100%" src="/imgs/Japan/world%20map/world_map_blank_black_lines_4500px_monochrome.png" alt="">
+        <img ng-show="hide" ng-click="questionN = 2" width="100%" src="/imgs/Japan/world%20map/map_japan_selected.png" alt="">
     </div>
-</div>
-<div ng-show="questionN == 3">
-    <h2>3 most exported products from Japan?</h2>
-    <div class="row">
-        <div class="col-md-6">Cars & vehicle parts</div>
-        <div class="col-md-6">Electronics</div>
-        <div class="col-md-6">Ships and boats</div>
-        <div class="col-md-6">Gold</div>
-        <div class="col-md-6" ng-click="goToVideo()">Chemical products</div>
+    <div ng-show="questionN == 2">
+        <h2 class="text-center">Symbol of Japan?</h2>
+        <div class="row answers">
+            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_1.png" alt=""></div>
+            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_2.png" alt=""></div>
+            <div class="col-md-6 text-center" ng-click="questionN = 3"><img src="/imgs/Japan/world%20map/symbol_1.png" alt=""></div>
+            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_3.png" alt=""></div>
+        </div>
+    </div>
+    <div ng-show="questionN == 3">
+        <h2 class="text-center">3 most exported products from Japan?</h2>
+        <div class="row">
+            <div class="col-md-6 btn btn-answer"> Cars & vehicle parts</div>
+            <div class="col-md-6 btn btn-answer">Electronics</div>
+            <div class="col-md-6 btn btn-answer">Ships and boats</div>
+            <div class="col-md-6 btn btn-answer">Gold</div>
+            <div class="col-md-6 btn btn-answer" ng-click="goToVideo()">Chemical products</div>
+        </div>
     </div>
 </div>

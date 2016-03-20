@@ -2,9 +2,9 @@
     <div id="information-bg" style="background-image: url({{ video.images[0].url }});">
     </div>
     <div id="information-block">
-        <h1>{{ video.titles.default }}</h1>
+        <h1>{{ video.titles.default }} <a class="btn btn-default pull-right" ui-sref="prequestionnaire({id: video.id})">Watch</a></h1>
         <div ng-show="video.productionYear">{{ video.productionYear }}</div>
-        <div ng-show="video.parentalRating">{{ video.parentalRating.age }}+</div>
+        <div class="age-limit" ng-show="video.parentalRating"><span>{{ video.parentalRating.age }}+</span></div>
         <div>
             Duration: {{ getMinutes(video.duration) }}
         </div>
@@ -14,6 +14,24 @@
         <div>
             {{ video.descriptions.default }}
         </div>
-        <a class="btn" ui-sref="prequestionnaire({id: video.id})">Watch</a>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-10">
+
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+            <div class="col-md-2" ng-repeat="data in ericsonData">
+                <img class="col-md-12" ng-src="{{ data.document.relatedMaterial[0].value }}" alt="">
+                <div>
+                    {{ data.document.sourceName }}
+                </div>
+                <div>
+                    {{ data.document.publishedStartDateTime | date : 'short' }}
+                </div>
+            </div>
+        </div>
     </div>
 </div>

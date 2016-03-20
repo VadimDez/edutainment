@@ -87,6 +87,21 @@ nav .logo img {
     -ms-filter: blur(5px);
     filter: blur(5px);
 }
+#information-bg {
+    width: 100%
+}
+
+#text-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1 ;
+}
+#text-bg img:first {
+    width: 100%;
+}
 
 #information-block {
     margin: 50px;
@@ -126,16 +141,28 @@ nav .logo img {
     padding: 7px 4px;
 }
 
-#pre-questionnaire .answers img {
+#pre-questionnaire .answers img, #post-questionnaire .answers img {
     width: 200px;
     /*height: 200px;*/
 }
 
-#pre-questionnaire .answers img:hover {
+#pre-questionnaire .answers img:hover,
+#post-questionnaire .answers img:hover {
     opacity: 0.7;
 }
-#pre-questionnaire .btn-answer:hover {
+#pre-questionnaire .btn-answer:hover,
+#post-questionnaire .btn-answer:hover {
     color: #fff;
+}
+#pre-questionnaire .btn-answer.checkbox,
+#post-questionnaire .btn-answer.checkbox {
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+#pre-questionnaire .btn-answer.checkbox:hover,
+#post-questionnaire .btn-answer.checkbox:hover {
+    color: #000;
 }
 
 .videogular-container {
@@ -172,4 +199,22 @@ nav .logo img {
     left: 0;
     right: 0;
     z-index: 2;
+}
+
+/*#pre-questionnaire,*/
+/*#post-questionnaire {*/
+    /*color: #fff;*/
+/*}*/
+
+.white-container {
+    color: #000;
+    margin: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.36);
+}
+
+.btn-text-answer {
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000 !important;
 }

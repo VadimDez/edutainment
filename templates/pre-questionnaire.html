@@ -1,27 +1,40 @@
 <div id="pre-questionnaire">
-    <div ng-show="questionN == 1">
-        <h2 class="text-center">Where is Japan on the world map?</h2>
+    <div id="text-bg">
+        <img src="/imgs/Japan/wallpaper_blurred_3.png" alt="">
+    </div>
 
-        <img ng-show="!hide" ng-click="hide = true" width="100%" src="/imgs/Japan/world%20map/world_map_blank_black_lines_4500px_monochrome.png" alt="">
-        <img ng-show="hide" ng-click="questionN = 2" width="100%" src="/imgs/Japan/world%20map/map_japan_selected.png" alt="">
-    </div>
-    <div ng-show="questionN == 2">
-        <h2 class="text-center">Symbol of Japan?</h2>
-        <div class="row answers">
-            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_1.png" alt=""></div>
-            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_2.png" alt=""></div>
-            <div class="col-md-6 text-center" ng-click="questionN = 3"><img src="/imgs/Japan/world%20map/symbol_1.png" alt=""></div>
-            <div class="col-md-6 text-center"><img src="/imgs/Japan/world%20map/symbol_wrong_3.png" alt=""></div>
+    <nav>
+        <div class="row-fluid">
+            <div class="col-md-3 logo">
+                <a ui-sref="main"><img src="http://s13.postimg.org/et2ue3hav/curio_logo.png" alt=""></a>
+            </div>
         </div>
-    </div>
-    <div ng-show="questionN == 3">
-        <h2 class="text-center">3 most exported products from Japan?</h2>
-        <div class="row">
-            <div class="col-md-6 btn btn-answer"> Cars & vehicle parts</div>
-            <div class="col-md-6 btn btn-answer">Electronics</div>
-            <div class="col-md-6 btn btn-answer">Ships and boats</div>
-            <div class="col-md-6 btn btn-answer">Gold</div>
-            <div class="col-md-6 btn btn-answer" ng-click="goToVideo()">Chemical products</div>
+    </nav>
+    <div class="white-container">
+        <div ng-show="questionN == 1">
+            <h2 class="text-center">Where is Japan on the world map?</h2>
+
+            <img ng-show="!hide" ng-click="hide = true" width="100%" src="http://s13.postimg.org/hrru1me6v/world_map_blank_black_lines_4500px_monochrome.png" alt="">
+            <img ng-show="hide" ng-click="questionN = 2" width="100%" src="http://s13.postimg.org/cv0rtue6v/world_map_japan.png" alt="">
+        </div>
+        <div ng-show="questionN == 2">
+            <h2 class="text-center">Symbol of Japan?</h2>
+            <div class="row answers">
+                <div class="col-md-6 text-center"><img src="http://s13.postimg.org/4tvdea5w7/symbol_wrong_1.png" alt=""></div>
+                <div class="col-md-6 text-center"><img src="http://s11.postimg.org/6md6suu0z/symbol_wrong_2.png" alt=""></div>
+                <div class="col-md-6 text-center" ng-click="questionN = 3"><img src="http://s13.postimg.org/46wgor907/symbol_1.png" alt=""></div>
+                <div class="col-md-6 text-center"><img src="http://s13.postimg.org/gzkkooklz/symbol_wrong_3.png" alt=""></div>
+            </div>
+        </div>
+        <div ng-show="questionN == 3">
+            <h2 class="text-center">3 most exported products from Japan?</h2>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value1" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Cars & vehicle parts</label></div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value2" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Electronics</label></div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value3" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Gold</label></div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value4" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Chemical products</label></div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value5" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Ships and boats</label></div>
+            </div>
         </div>
     </div>
 </div>

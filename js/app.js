@@ -156,6 +156,24 @@ angular.module('app', [
         APIService.getEricsonData($scope.video.titles.default, 6)
           .then(function (ericsonData) {
             $scope.ericsonData = ericsonData.data;
+
+            if (response.data.response.id == 3606990) {
+              $scope.ericsonData[3].document.relatedMaterial = {
+                0: {
+                  value: 'http://cdn.madman.com.au/images/series/15834-series-header.jpg'
+                }
+              };
+              $scope.ericsonData[4].document.relatedMaterial = {
+                0: {
+                  value: 'http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/shows/banner_862.jpg'
+                }
+              };
+              $scope.ericsonData[5].document.relatedMaterial = {
+                0: {
+                  value: 'http://keyconversationsradio.com/wp-content/uploads/2010/09/webshot.jpg'
+                }
+              }
+            }
           })
       });
 
@@ -213,19 +231,21 @@ angular.module('app', [
 
   })
   .controller('PostQuestionnaireController', function ($scope, $state, $stateParams) {
-    $scope.goBack = goBack;
-    $scope.next = next;
+    $scope.questionN = 1;
 
-    function next() {
+    $scope.goToSuggested = function () {
       $state.go('suggested-videos', {id: $stateParams.id})
     }
+    
+  })
+  .controller('SuggestedVideosController', function ($scope, APIService, $state, $stateParams) {
+    $scope.goToInitial = goToInitial;
+    $scope.goBack = goBack;
+
 
     function goBack() {
       $state.go('video', {id: $stateParams.id})
     }
-  })
-  .controller('SuggestedVideosController', function ($scope, APIService, $state) {
-    $scope.goToInitial = goToInitial;
 
     function goToInitial() {
       $state.go('main');

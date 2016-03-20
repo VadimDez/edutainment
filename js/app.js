@@ -138,6 +138,7 @@ angular.module('app', [
   })
   .controller('InformationController', function ($scope, APIService, $stateParams) {
     $scope.video = null;
+    $scope.getMinutes = getMinutes;
 
     APIService.getVideo($stateParams.id)
       .then(function (response) {

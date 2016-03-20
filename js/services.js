@@ -14,7 +14,7 @@ angular.module('services', [])
           url: api + 'videos',
           params: $.extend({
             apikey: key7TV,
-            selection: '{totalCount,data{id,type,titles,descriptions,shortDescriptions,duration,status,images{id,type,url}}}',
+            selection: '{totalCount,data{id,type,titles,descriptions,shortDescriptions,duration,status,subType,keywords,genres,images{id,type,url}}}',
             limit: 50
           }, search)
         })
@@ -26,7 +26,7 @@ angular.module('services', [])
           url: api + 'videos/' + id,
           params: {
             apikey: key7TV,
-            selection: '{id,type,titles,descriptions,shortDescriptions,duration,status,languageVersion,productionYear,tvShow,parentalRating,episode,images{id,type,url}}'
+            selection: '{id,type,titles,descriptions,shortDescriptions,duration,status,languageVersion,productionYear,genres,tvShow,parentalRating,episode,images{id,type,url}}'
           }
         })
       },

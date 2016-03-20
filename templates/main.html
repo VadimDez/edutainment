@@ -42,7 +42,7 @@
 
             <div class="videos col-md-12" ng-show="videos">
                 <h3>Search results</h3>
-                <div class="row">
+                <div class="row slider">
                     <div class="col-md-2 text-left">
                         <button class="btn" ng-click="prev()">Prev</button>
                     </div>
@@ -56,7 +56,7 @@
                             <div>
                                 <img ng-src="{{ video.images[0].url }}" alt="">
                                 <div class="details">
-                                    <div>
+                                    <div class="title">
                                         {{ video.titles.default }}
                                     </div>
                                     <div class="overlay">
@@ -71,15 +71,15 @@
                 </div>
             </div>
 
-            <div class="videos col-md-12" ng-show="suggestionVideos">
+            <div class="videos suggested col-md-12" ng-show="suggestionVideos">
                 <h3>Suggested videos</h3>
                 <div class="row">
                     <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in suggestionVideos">
-                        <div class="col-md-2" ng-show="key >= 0 && key <= 5">
+                        <div class="col-md-2">
                             <div>
                                 <img ng-src="{{ video.images[0].url }}" alt="">
                                 <div class="details">
-                                    <div>
+                                    <div class="title">
                                         {{ video.titles.default }}
                                     </div>
                                     <div class="overlay">

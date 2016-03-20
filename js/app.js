@@ -87,7 +87,8 @@ angular.module('app', [
 
 
     APIService.search({
-        search: 'galileo 360'
+        search: 'galileo 360',
+        limit: 24
       })
       .then(function (data) {
         $scope.suggestionCountVideos = data.data.response.totalCount;

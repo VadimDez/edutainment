@@ -1,6 +1,7 @@
 body {
     background-color: rgb(242, 246, 247);
     color: #000;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav {
@@ -56,6 +57,15 @@ nav .logo {
     height: 200px;
     background-color: #fff;
 }
+
+.videos .video .details .title {
+    padding: 5px 10px;
+}
+
+.videos.suggested .video > div > div {
+    margin-bottom: 20px;
+}
+
 .videos .video .details {
     padding: 5px;
 }
@@ -150,4 +160,12 @@ nav .logo {
         width: 728px;
         height: 409.5px;
     }
+}
+
+.slider {
+    position: absolute;
+    top: 129px;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }

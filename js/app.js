@@ -39,6 +39,11 @@ angular.module('app', [
         templateUrl: 'templates/video-information.html',
         controller: 'InformationController'
       })
+      .state('prequestionnaire', {
+        url: '/pre-questionnaire/:id',
+        templateUrl: 'templates/pre-questionnaire.html',
+        controller: 'PrequestionnaireController'
+      })
       .state('video', {
         url: '/video/:id',
         templateUrl: 'templates/video.html',
@@ -80,6 +85,17 @@ angular.module('app', [
     $scope.prev = prev;
     $scope.next = next;
 
+
+    APIService.search({
+        search: 'galileo 360'
+      })
+      .then(function (data) {
+        $scope.suggestionCountVideos = data.data.response.totalCount;
+        $scope.suggestionVideos = data.data.response.data;
+      }, function () {
+        alert('issue!');
+      });
+
     /**
      *
      * @param title
@@ -89,18 +105,18 @@ angular.module('app', [
           search: title
         })
         .then(function (data) {
-          $scope.countVideos = data.data.response.totalCount;
-          $scope.videos = data.data.response.data;
-        }, function () {
-          alert('issue!');
-        });
 
-      APIService.search({
-          search: title
-        })
-        .then(function (data) {
-          $scope.countVideos = data.data.response.totalCount;
-          $scope.videos = data.data.response.data;
+          if (title.toLowerCase() === 'japan') {
+            APIService.getVideo(3606990)
+              .then(function (videoData) {
+                $scope.countVideos = data.data.response.totalCount + 1;
+                data.data.response.data[2] = videoData.data.response;
+                $scope.videos = data.data.response.data;
+              })
+          } else {
+            $scope.countVideos = data.data.response.totalCount;
+            $scope.videos = data.data.response.data;
+          }
         }, function () {
           alert('issue!');
         });
@@ -127,6 +143,13 @@ angular.module('app', [
       .then(function (response) {
         $scope.video = response.data.response;
       });
+  })
+  .controller('PrequestionnaireController', function ($scope, APIService, $state, $stateParams) {
+    $scope.questionN = 1;
+
+    $scope.goToVideo = function () {
+      $state.go('video', {id: $stateParams.id});
+    }
   })
   .controller('VideoController', function ($scope, APIService, $stateParams, $timeout, $sce, $state) {
     $scope.video = null;

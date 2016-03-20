@@ -9,15 +9,15 @@ angular.module('services', [])
   .factory('APIService', function($http) {
     return {
       search: function (search) {
-        return $http($.extend({
+        return $http({
           method: 'GET',
           url: api + 'videos',
-          params: {
+          params: $.extend({
             apikey: key7TV,
             selection: '{totalCount,data{id,type,titles,descriptions,shortDescriptions,duration,status,images{id,type,url}}}',
             limit: 50
-          }
-        }, search))
+          }, search)
+        })
       },
 
       getVideo: function (id) {

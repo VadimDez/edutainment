@@ -42,6 +42,27 @@
                     </a>
                 </div>
             </div>
+
+            <div class="videos col-md-12" ng-show="suggestionVideos">
+                <h3>Suggested videos</h3>
+                <div class="row">
+                    <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in suggestionVideos">
+                        <div class="col-md-2" ng-show="key >= 0 && key <= 5">
+                            <div>
+                                <img ng-src="{{ video.images[0].url }}" alt="">
+                                <div>
+                                    {{ video.titles.default }}
+                                </div>
+                                <div class="overlay">
+                                    <div>
+                                        {{ getMinutes(video.duration) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

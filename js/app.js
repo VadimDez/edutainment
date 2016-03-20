@@ -164,6 +164,14 @@ angular.module('app', [
       }, 1000);
     };
 
+    $scope.onPlayerReady = function (API) {
+      console.log(API);
+
+      $timeout(function () {
+        $('[ng-class="fullscreenIcon"]').trigger('click');
+      }, 1000);
+    };
+
     APIService.getVideo($stateParams.id)
       .then(function (response) {
         video = response.data.response;

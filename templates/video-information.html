@@ -1,12 +1,12 @@
-<div class="information-bg">
-    <div class="information-block">
+<div id="information">
+    <div id="information-bg" style="background-image: url({{ video.images[0].url }});">
+    </div>
+    <div id="information-block">
         <h1>{{ video.titles.default }}</h1>
+        <div ng-show="video.productionYear">{{ video.productionYear }}</div>
+        <div ng-show="video.parentalRating">{{ video.parentalRating.age }}+</div>
         <div>
-            <span ng-show="video.productionYear">{{ video.productionYear }}</span>
-            <span ng-show="video.parentalRating">{{ video.parentalRating.age }}+</span>
-        </div>
-        <div>
-            Duration: {{ video.duration / 60000 }}
+            Duration: {{ getMinutes(video.duration) }}
         </div>
         <div ng-show="video.languageVersion">
             Language: {{ video.languageVersion }}
@@ -14,6 +14,6 @@
         <div>
             {{ video.descriptions.default }}
         </div>
-        <a ui-sref="prequestionnaire({id: video.id})">Watch</a>
+        <a class="btn" ui-sref="prequestionnaire({id: video.id})">Watch</a>
     </div>
 </div>

@@ -22,3 +22,14 @@ body {
     background-color: #000;
     border-radius: 10px;
 }
+
+.videos .video {
+    color: white;
+}
+.videos .video img {
+    width: 100%;
+}
+.videos .video > div > div{
+    height: 200px;
+    background-color: #000;
+}

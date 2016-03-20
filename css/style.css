@@ -1,9 +1,10 @@
 body {
-    background-color: rgba(36, 36, 36, 0.86);
-    color: #fff;
+    background-color: rgb(242, 246, 247);
+    color: #000;
 }
 
 nav {
+    background-color: #fff;
     padding-top: 20px;
     height: 100px;
 }
@@ -12,6 +13,13 @@ nav .logo {
 
     font-size: 38px;
     line-height: 30px;
+}
+
+.topics > div {
+    color: rgba(119, 119, 119, 0.75);
+    padding: 15px;
+    height: 50px;
+    background-color: rgba(214, 214, 214, 0.22);
 }
 
 #app-main-search-box {
@@ -38,14 +46,18 @@ nav .logo {
 }
 
 .videos .video {
-    color: white;
+    color: #000;
 }
 .videos .video img {
     width: 100%;
 }
 .videos .video > div > div{
+    border: 1px solid #e3e3e3;
     height: 200px;
-    background-color: #000;
+    background-color: #fff;
+}
+.videos .video .details {
+    padding: 5px;
 }
 
 #information-bg {
@@ -64,7 +76,7 @@ nav .logo {
 
 #information-block {
     margin: 50px;
-    padding: 10px;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.36);
     color: #000;
 }
@@ -74,6 +86,18 @@ nav .logo {
     background-color: rgba(255, 255, 255, 0.39);
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#information .btn-watch {
+    font-size: 25px;
+}
+#information .btn-watch i {
+    font-size: 20px;
+}
+
+#information .related h3 {
+    margin-top: 0;
     margin-bottom: 10px;
 }
 

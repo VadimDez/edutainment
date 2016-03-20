@@ -1,7 +1,6 @@
 <div id="app-main">
-    <div class="container-fluid">
         <nav>
-            <div class="row">
+            <div class="row-fluid">
                 <div class="col-md-3 logo">
                     curio
                 </div>
@@ -16,10 +15,33 @@
                 </div>
             </div>
         </nav>
+        <div class="topics row-fluid">
+            <div>
+                <div class="col-md-2">
+                    Education
+                </div>
+                <div class="col-md-2">
+                    Sport
+                </div>
+                <div class="col-md-2">
+                    Music
+                </div>
+                <div class="col-md-2">
+                    Travel
+                </div>
+                <div class="col-md-2">
+                    Science
+                </div>
+                <div class="col-md-2">
+                    Technology
+                </div>
+            </div>
+        </div>
+    <div class="container-fluid">
         <div class="row">
 
             <div class="videos col-md-12" ng-show="videos">
-                <h3>Search results:</h3>
+                <h3>Search results</h3>
                 <div class="row">
                     <div class="col-md-2 text-left">
                         <button class="btn" ng-click="prev()">Prev</button>
@@ -33,12 +55,14 @@
                         <div class="col-md-2" ng-show="key >= showMin && key <= showMax">
                             <div>
                                 <img ng-src="{{ video.images[0].url }}" alt="">
-                                <div>
-                                    {{ video.titles.default }}
-                                </div>
-                                <div class="overlay">
+                                <div class="details">
                                     <div>
-                                        {{ getMinutes(video.duration) }}
+                                        {{ video.titles.default }}
+                                    </div>
+                                    <div class="overlay">
+                                        <div>
+                                            {{ getMinutes(video.duration) }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -54,12 +78,14 @@
                         <div class="col-md-2" ng-show="key >= 0 && key <= 5">
                             <div>
                                 <img ng-src="{{ video.images[0].url }}" alt="">
-                                <div>
-                                    {{ video.titles.default }}
-                                </div>
-                                <div class="overlay">
+                                <div class="details">
                                     <div>
-                                        {{ getMinutes(video.duration) }}
+                                        {{ video.titles.default }}
+                                    </div>
+                                    <div class="overlay">
+                                        <div>
+                                            {{ getMinutes(video.duration) }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

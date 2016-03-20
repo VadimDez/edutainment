@@ -2,34 +2,51 @@
     <div id="information-bg" style="background-image: url({{ video.images[0].url }});">
     </div>
     <div id="information-block">
-        <h1>{{ video.titles.default }} <a class="btn btn-default pull-right" ui-sref="prequestionnaire({id: video.id})">Watch</a></h1>
-        <div ng-show="video.productionYear">{{ video.productionYear }}</div>
-        <div class="age-limit" ng-show="video.parentalRating"><span>{{ video.parentalRating.age }}+</span></div>
-        <div>
-            Duration: {{ getMinutes(video.duration) }}
-        </div>
-        <div ng-show="video.languageVersion">
-            Language: {{ video.languageVersion }}
-        </div>
-        <div>
-            {{ video.descriptions.default }}
-        </div>
+        <h1>{{ video.titles.default }} <a class="btn btn-default pull-right btn-watch" ui-sref="prequestionnaire({id: video.id})"><i class="glyphicon glyphicon-play-circle"></i> Watch</a></h1>
         <div class="row">
-            <div class="col-md-2 col-md-offset-10">
+            <div class="col-md-4">
+                <img class="col-md-12" ng-src="{{ video.images[0].url }}" alt="">
+            </div>
+            <div class="col-md-8">
+                <div ng-show="video.productionYear">{{ video.productionYear }}</div>
+                <div class="age-limit" ng-show="video.parentalRating"><span>{{ video.parentalRating.age }}+</span></div>
+                <div>
+                    Duration: {{ getMinutes(video.duration) }}
+                </div>
+                <div ng-show="video.languageVersion">
+                    Language: {{ video.languageVersion }}
+                </div>
+                <div>
+                    {{ video.descriptions.default }}
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-10">
 
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="divider"></div>
 
-        <div class="row">
+        <div class="row related" ng-show="ericsonData">
+            <div class="col-md-12">
+                <h3>Related on TV</h3>
+            </div>
             <div class="col-md-2" ng-repeat="data in ericsonData">
-                <img class="col-md-12" ng-src="{{ data.document.relatedMaterial[0].value }}" alt="">
-                <div>
-                    {{ data.document.sourceName }}
-                </div>
-                <div>
-                    {{ data.document.publishedStartDateTime | date : 'short' }}
+                <div class="row">
+                    <img class="col-md-12" ng-src="{{ data.document.relatedMaterial[0].value || '/imgs/Placeholder.jpg' }}" alt="">
+                    <div class="col-md-12">
+                        <div>
+                            {{ data.document.sourceName }}
+                        </div>
+                        <div>
+                            {{ data.document.publishedStartDateTime | date : 'short' }}
+                        </div>
+                        <div>
+                            {{ getTitle(data.document.searchableTitles[0].value) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

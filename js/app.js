@@ -139,13 +139,20 @@ angular.module('app', [
   .controller('InformationController', function ($scope, APIService, $stateParams) {
     $scope.video = null;
     $scope.getMinutes = getMinutes;
+    $scope.getTitle = function (titles) {
+      if (!titles)
+        return '';
+
+
+      return titles[Object.keys(titles)[0]];
+    }
 
     APIService.getVideo($stateParams.id)
       .then(function (response) {
         $scope.video = response.data.response;
 
 
-        APIService.getEricsonData($scope.video.titles.default, 5)
+        APIService.getEricsonData($scope.video.titles.default, 6)
           .then(function (ericsonData) {
             $scope.ericsonData = ericsonData.data;
           })

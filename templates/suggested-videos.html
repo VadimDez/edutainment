@@ -23,3 +23,26 @@
         <img width="200px" src="http://s13.postimg.org/4ybp7vdcn/ad_2.png" alt="">
     </a>
 </div>
+
+<div class="videos col-md-12" ng-show="videos">
+    <h3>More videos on the topic</h3>
+    <div class="row">
+        <a class="video" ui-sref="information({id: video.id})" ng-repeat="(key, video) in videos">
+            <div class="col-md-2">
+                <div>
+                    <img ng-src="{{ video.images[0].url }}" alt="">
+                    <div class="details">
+                        <div class="title">
+                            {{ video.titles.default }}
+                        </div>
+                        <div class="overlay">
+                            <div>
+                                {{ getMinutes(video.duration) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

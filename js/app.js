@@ -158,6 +158,21 @@ angular.module('app', [
             $scope.ericsonData = ericsonData.data;
 
             if (response.data.response.id == 3606990) {
+              $scope.ericsonData[0].document.relatedMaterial = {
+                0: {
+                  value: 'https://i1.ytimg.com/sh/fN_BRKR-jaw/showposter.jpg?v=50b360d4'
+                }
+              };
+              $scope.ericsonData[1].document.relatedMaterial = {
+                0: {
+                  value: 'https://i1.ytimg.com/sh/fN_BRKR-jaw/showposter.jpg?v=50b360d4'
+                }
+              };
+              $scope.ericsonData[2].document.relatedMaterial = {
+                0: {
+                  value: 'http://www.madman.com.au/wallpapers/sengoku_basara_-_samurai__643_1680.jpg'
+                }
+              };
               $scope.ericsonData[3].document.relatedMaterial = {
                 0: {
                   value: 'http://cdn.madman.com.au/images/series/15834-series-header.jpg'
@@ -242,6 +257,16 @@ angular.module('app', [
     $scope.goToInitial = goToInitial;
     $scope.goBack = goBack;
 
+    $scope.getMinutes = getMinutes;
+
+
+    APIService.search({
+      search: 'Japan',
+      limit: 6
+    }).then(function (data) {
+      $scope.countVideos = data.data.response.totalCount;
+      $scope.videos = data.data.response.data;
+    });
 
     function goBack() {
       $state.go('video', {id: $stateParams.id})

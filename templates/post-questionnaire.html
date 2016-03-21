@@ -1,71 +1,74 @@
-<div id="post-questionnaire">
+<div id="post-questionnaire" style="width: 100%">
     <div id="text-bg">
-        <img src="/imgs/Japan/wallpaper_blurred_3.png" alt="">
+        <img src="/imgs/Japan/wallpaper_blurred_3.png" alt=""  width="1920px" height="1080px">
     </div>
 
-    <nav>
-        <div class="row-fluid">
-            <div class="col-md-3 logo">
-                <a ui-sref="main"><img src="http://s13.postimg.org/et2ue3hav/curio_logo.png" alt=""></a>
+    <diw>
+        <nav>
+            <div class="row-fluid">
+                <div class="col-md-3 logo">
+                    <a ui-sref="main"><img src="http://s13.postimg.org/et2ue3hav/curio_logo.png" alt=""></a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="white-container">
-        <div ng-show="questionN == 1">
-            <h2 class="text-center">Where is Japan on the world map?</h2>
+        <div class="white-container">
+            <div ng-show="questionN == 1">
+                <h2 class="text-center">Where is Japan on the world map?</h2>
 
-            <img ng-show="!hide" ng-click="hide = true" width="100%" src="http://s13.postimg.org/hrru1me6v/world_map_blank_black_lines_4500px_monochrome.png" alt="">
-            <img ng-show="hide" ng-click="questionN = 2" width="100%" src="http://s13.postimg.org/cv0rtue6v/world_map_japan.png" alt="">
-        </div>
-        <div ng-show="questionN == 2">
-            <h2 class="text-center">Symbol of Japan?</h2>
-            <div class="row answers">
-                <div class="col-md-6 text-center"><img src="http://s13.postimg.org/4tvdea5w7/symbol_wrong_1.png" alt=""></div>
-                <div class="col-md-6 text-center"><img src="http://s11.postimg.org/6md6suu0z/symbol_wrong_2.png" alt=""></div>
-                <div class="col-md-6 text-center" ng-click="questionN = 3"><img src="http://s13.postimg.org/46wgor907/symbol_1.png" alt=""></div>
-                <div class="col-md-6 text-center"><img src="http://s13.postimg.org/gzkkooklz/symbol_wrong_3.png" alt=""></div>
+                <img ng-show="!hide" ng-click="hide = true" width="100%" src="http://s13.postimg.org/hrru1me6v/world_map_blank_black_lines_4500px_monochrome.png" alt="">
+                <img ng-show="hide" ng-click="questionN = 2" width="100%" src="http://s13.postimg.org/cv0rtue6v/world_map_japan.png" alt="">
             </div>
-        </div>
-        <div ng-show="questionN == 3">
-            <h2 class="text-center">3 most exported products from Japan?</h2>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value1" ng-change="(value1 && value2 && value5) ? questionN = 4 : ''"> Cars & vehicle parts</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value2" ng-change="(value1 && value2 && value5) ? questionN = 4 : ''"> Electronics</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value3" ng-change="(value1 && value2 && value5) ? questionN = 4 : ''"> Gold</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value4" ng-change="(value1 && value2 && value5) ? questionN = 4 : ''"> Chemical products</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value5" ng-change="(value1 && value2 && value5) ? questionN = 4 : ''"> Ships and boats</label></div>
+            <div ng-show="questionN == 2">
+                <h2 class="text-center">Symbol of Japan?</h2>
+                <div class="row answers">
+                    <div class="col-md-6 text-center"><img src="http://s13.postimg.org/4tvdea5w7/symbol_wrong_1.png" alt=""></div>
+                    <div class="col-md-6 text-center"><img src="http://s11.postimg.org/6md6suu0z/symbol_wrong_2.png" alt=""></div>
+                    <div class="col-md-6 text-center" ng-click="questionN = 3"><img src="http://s13.postimg.org/46wgor907/symbol_1.png" alt=""></div>
+                    <div class="col-md-6 text-center"><img src="http://s13.postimg.org/gzkkooklz/symbol_wrong_3.png" alt=""></div>
+                </div>
             </div>
-        </div>
-        <div ng-show="questionN == 4">
-            <h2 class="text-center">Japan turns which of the following into renewable energy?</h2>
+            <div ng-show="questionN == 3">
+                <h2 class="text-center">Most exported product from Japan?</h2>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Cars & vehicle parts</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox" ng-click="questionN = 4">Electronics</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Gold</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Chemical products</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Ships and boats</div>
+                </div>
+            </div>
+            <div ng-show="questionN == 4">
+                <h2 class="text-center">Japan turns which of the following into renewable energy?</h2>
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Crowd noise at sumo wrestling Station</div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Stationary bikes in spinning classes</div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="questionN = 5">Footsteps at Tokyo trading stations</div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Leftover sushi rice</div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Crowd noise at sumo wrestling Station</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Stationary bikes in spinning classes</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="questionN = 5">Footsteps at Tokyo trading stations</div>
+                    <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Leftover sushi rice</div>
+                </div>
             </div>
-        </div>
-        <div ng-show="questionN == 5">
-            <h2 class="text-center">When was the last time young Fuji erupted?</h2>
+            <div ng-show="questionN == 5">
+                <h2 class="text-center">When was the last time young Fuji erupted?</h2>
 
-            <div class="row">
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">685</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="questionN = 6">1707</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">2003</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">it has never erupted</div>
+                <div class="row">
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">685</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="questionN = 6">1707</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">2003</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">it has never erupted</div>
+                </div>
             </div>
-        </div>
-        <div ng-show="questionN == 6">
-            <h2 class="text-center">Which are in Tokyo is famous for its colorful street fashion?</h2>
+            <div ng-show="questionN == 6">
+                <h2 class="text-center">Which are in Tokyo is famous for its colorful street fashion?</h2>
 
-            <div class="row">
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="goToSuggested()">Harajuku (right answer)</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Toneri</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Uchigaya</div>
-            <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Mizue</div>
+                <div class="row">
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer" ng-click="goToSuggested()">Harajuku (right answer)</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Toneri</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Uchigaya</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer btn-text-answer">Mizue</div>
+                </div>
             </div>
         </div>
-    </div>
+
+    </diw>
 </div>

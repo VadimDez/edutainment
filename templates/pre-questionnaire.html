@@ -1,6 +1,6 @@
-<div id="pre-questionnaire">
+<div id="pre-questionnaire" style="width: 100%;">
     <div id="text-bg">
-        <img src="/imgs/Japan/wallpaper_blurred_3.png" alt="">
+        <img src="/imgs/Japan/wallpaper_blurred_3.png" alt="" width="1920px" height="1080px">
     </div>
 
     <nav>
@@ -27,13 +27,13 @@
             </div>
         </div>
         <div ng-show="questionN == 3">
-            <h2 class="text-center">3 most exported products from Japan?</h2>
+            <h2 class="text-center">Most exported product from Japan?</h2>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value1" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Cars & vehicle parts</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value2" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Electronics</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value3" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Gold</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value4" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Chemical products</label></div>
-                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox"><label><input type="checkbox" ng-model="value5" ng-change="(value1 && value2 && value5) ? goToVideo() : ''"> Ships and boats</label></div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Cars & vehicle parts</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox" ng-click="goToVideo()">Electronics</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Gold</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Chemical products</div>
+                <div class="col-md-8 col-md-offset-2 btn btn-answer checkbox">Ships and boats</div>
             </div>
         </div>
     </div>
